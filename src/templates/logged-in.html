@@ -1,0 +1,47 @@
+<div id="#name"><%= @username %></div>
+<form method="post" action="dorequest" >
+    <input type="hidden" name="_csrf" value="<%= @csrf %>" />
+    <fieldset>
+    <input type="radio" value="space" name="request-type" id="space" />
+    <label for="space">I have a space</label>
+    <input type="radio" value="lift" name="request-type" id="lift" />
+    <label for="lift">I want a lift</label>
+    </fieldset>
+    <label>
+        For 
+            <select name="number-of-spaces">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        people
+    </label>
+    <label>
+        At  
+            <select name="hour">
+                <% for current_hour in [1..12]: %>
+                    
+                    <option <% if current_hour==@hour%12 or (current_hour==12 && @hour%12==0): %>selected="selected"<% end %>>
+                        <%= current_hour %>
+                    </option>
+                <% end %>
+            </select>
+            :
+            <select name="minute">
+                <% for minute in [0..55] by 5: %>
+                    <option <% if minute==@minute:%>selected<% end %>><%=minute %></option>
+                <% end %>
+            </select>
+            <select>
+                <option <% if @hour < 12:%>selected<% end %>>AM</option>
+                <option <% if @hour >= 12: %>selected<%end%>>PM</option>
+            </select>
+    </label>
+    <label>from <input type="text" name="from" /></label>
+    <label>to <input type="text" name="to" /></label>
+    <button type="submit">   
+        GO!
+    </button>
+</form>
