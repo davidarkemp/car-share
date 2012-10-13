@@ -1,0 +1,24 @@
+{
+  "name": "car-share",
+  "version": "0.0.0",
+  "description": "train works car share tool",
+  "main": "src/app.coffee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "keywords": [
+    "car",
+    "share",
+    "train",
+    "works",
+    "stalybridge"
+  ],
+  "author": "David Kemp <david@x2764te.ch>",
+  "license": "BSD",
+  "dependencies": {
+    "coffee-script" : "*",
+    "express": "*",
+    "socket.io": "*"
+  }
+}
